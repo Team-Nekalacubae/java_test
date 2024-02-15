@@ -4,6 +4,7 @@ import com.ohgiraffers.hw2.model.comparator.AscCategory;
 import com.ohgiraffers.hw2.model.comparator.DescCategory;
 import com.ohgiraffers.test.model.dto.BookDTO;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -19,7 +20,20 @@ public class BookManager {
 
     /* 전달받은 BookDTO 객체를 생성자시 선언한 ArrayList 객체 추가*/
     public void addBook(BookDTO book) {
-        bookDTOArrayList.add(book);
+        ArrayList<Integer> temp = new ArrayList<>();
+        for (int i = 0; i < bookDTOArrayList.size(); i++) {
+            temp.add(bookDTOArrayList.get(i).getbNo());
+        }
+
+        for (int i = 0; i <= bookDTOArrayList.size(); i++) {
+            if (!(temp.contains(book.getbNo()))) {
+                bookDTOArrayList.add(book);
+                break;
+            } else if (temp.contains(book.getbNo())) {
+                System.out.println("도서 목록에 동일한 도서 번호가 존재합니다.");
+                break;
+            }
+        }
     }
 
     /* 전달받은 도서 번호로 ArrayList 안에 있는 정보 삭제 */
