@@ -13,15 +13,17 @@ public class BookMenu {
     public BookMenu() {}
 
     public void menu() {
+        int num = 0;
         while (true) {
             System.out.println("==== 도서관리 프로그램 메인 메뉴 ====");
             System.out.println("1. 도서 추가 ");
             System.out.println("2. 도서 삭제 ");
             System.out.println("3. 도서 검색 ");
-            System.out.println("4. 도서 목록 ");
+            System.out.println("4. 도서 전체 목록 ");
+            System.out.println("5. 도서분류코드 별 정렬");
             System.out.println("9. 프로그램 종료");
             System.out.print("원하시는 메뉴를 입력하세요 : ");
-            int num = sc.nextInt();
+            num = sc.nextInt();
             switch (num) {
                 case 1 :
                     bm.addBook(inputBook());
@@ -33,8 +35,11 @@ public class BookMenu {
                     bm.printBook(bm.searchBook(inputBookTitle()));
                     break;
                 case 4 :
+                    bm.displayAll();
+                    break;
+                case 5 :
                     bm.sortedBookList(printAll());
-                    bm.displayAll(); break;
+                    break;
                 case 9 :
                     System.out.println("도서관리 프로그램을 종료합니다."); break;
                 default:
@@ -52,7 +57,7 @@ public class BookMenu {
         System.out.print("도서 번호 : ");
         int inBNo = sc.nextInt();
         bookDTO.setbNo(inBNo);
-        System.out.print("도서분류코드 : ");
+        System.out.print("도서분류코드(1. 인문/ 2. 자연과학 / 3. 의료 / 4. 기타) : ");
         int inCategory = sc.nextInt();
         bookDTO.setCategory(inCategory);
         System.out.print("도서 제목 : ");
@@ -68,13 +73,17 @@ public class BookMenu {
 
     public String inputBookTitle() {
         System.out.print("검색할 도서 제목을 입력하세요 : ");
+        sc.nextLine();
         String scTilte = sc.nextLine();
         return scTilte;
     }
 
     public int inputBookNumber() {
+        BookDTO bookDTO = new BookDTO();
         System.out.print("삭제할 도서 번호를 입력하세요 : ");
         int delBookNum = sc.nextInt();
+        
+
         return delBookNum;
     }
 

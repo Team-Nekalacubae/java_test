@@ -51,11 +51,11 @@ public class BookDTO {
     public String toString() {
        String sCate;
        switch (category) {
-           case 1 : sCate = category + " : 인문"; break;
-           case 2 : sCate = category + " : 자연과학"; break;
-           case 3 : sCate = category + " : 의료"; break;
-           case 4 : sCate = category + " : 기타"; break;
-           default: sCate = category + " : 미분류"; break;
+           case 1 : sCate = category + " (인문)"; break;
+           case 2 : sCate = category + " (자연과학)"; break;
+           case 3 : sCate = category + " (의료)"; break;
+           case 4 : sCate = category + " (기타)"; break;
+           default: sCate = category + " (미분류)"; break;
        }
        return " [ 카테고리 : " + sCate + " / 도서번호 : " + bNo
                + " / 도서제목 : " + title + " / 도서저자 : " + author + " ]";
