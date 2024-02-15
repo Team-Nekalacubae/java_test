@@ -24,10 +24,11 @@ public class BookManager {
     /* 전달받은 도서 번호로 ArrayList 안에 있는 정보 삭제 */
     public void deleteBook(int index) {
         for (int i = 0; i < bookDTOArrayList.size(); i++) {
+
             if (bookDTOArrayList.get(i).getbNo() == index) {
 
                 bookDTOArrayList.remove(i);
-            } else {
+            } else if (i + 1 == bookDTOArrayList.size()) {
                 System.out.println("도서 목록에 없는 도서 번호 입니다.");
             }
         }
