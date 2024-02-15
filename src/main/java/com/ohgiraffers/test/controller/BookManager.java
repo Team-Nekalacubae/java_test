@@ -11,6 +11,7 @@ public class BookManager {
 
     /* 기본생성자 -> ArrayList<BookDTO> 인스턴스 생성*/
     ArrayList<BookDTO> bookDTOArrayList;
+
     public BookManager() {
         bookDTOArrayList = new ArrayList<>();
     }
@@ -39,13 +40,14 @@ public class BookManager {
 
     /* 전달받은 도서 제목으로 도서를 검색하고 결과값 반환 */
     public int searchBook(String title) {
-        int serchNum = 0;
+        int serchNum = 1000;
         for (int i = 0; i < bookDTOArrayList.size(); i++) {
             if (bookDTOArrayList.get(i).getTitle().equals(title)) {
 
                 serchNum = i;
-            } else {
-                System.out.println("도서 목록에 없는 도서 제목 입니다.");
+                break;
+            } else if (i + 1 == bookDTOArrayList.size()) {
+                System.out.println("잘못된 도서 제목을 입력하셨습니다.");
                 break;
             }
         }
@@ -54,10 +56,12 @@ public class BookManager {
 
     /* 전달받은 인덱스에 있는 도서정보 출력*/
     public void printBook(int index) {
-        for (int i = 0; i < bookDTOArrayList.size(); i++) {
-            if (bookDTOArrayList.get(i).getbNo() == index) {
-                System.out.println(bookDTOArrayList.get(index));
+        try {
+            if (index >= 0 && index < bookDTOArrayList.size()) {
+                Object[] temp = bookDTOArrayList.toArray();
+                System.out.println(temp[index]);
             }
+        } catch (Exception e) {
         }
     }
 
@@ -75,11 +79,11 @@ public class BookManager {
 
         switch (select) {
             // 오름차순
-            case 1 :
+            case 1:
                 bookDTOArrayList.sort(new AscCategory());
                 break;
             // 내림차순
-            case 2 :
+            case 2:
                 Collections.sort(bookDTOArrayList, new DescCategory());
                 break;
         }

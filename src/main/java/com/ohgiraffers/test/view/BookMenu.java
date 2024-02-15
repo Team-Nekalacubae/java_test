@@ -72,14 +72,9 @@ public class BookMenu {
 
     public String inputBookTitle() {
         String searchTilte = null;
-        if (bm.initialBookDTO() != 0) {
             System.out.print("검색할 도서 제목을 입력하세요 : ");
             sc.nextLine();
             searchTilte = sc.nextLine();
-        } else {
-            System.out.println("도서 목록이 비어 있습니다.");
-            System.out.println("우선 도서를 추가하시기 바랍니다.");
-        }
 
         return searchTilte;
     }
