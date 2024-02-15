@@ -54,16 +54,20 @@ public class BookManager {
 
     /* 전달받은 도서 제목으로 도서를 검색하고 결과값 반환 */
     public int searchBook(String title) {
-        int serchNum = 1000;
-        for (int i = 0; i < bookDTOArrayList.size(); i++) {
-            if (bookDTOArrayList.get(i).getTitle().equals(title)) {
-
-                serchNum = i;
-                break;
-            } else if (i + 1 == bookDTOArrayList.size()) {
-                System.out.println("잘못된 도서 제목을 입력하셨습니다.");
-                break;
+        int serchNum = -1;
+        if (!bookDTOArrayList.isEmpty()) {
+            for (int i = 0; i < bookDTOArrayList.size(); i++) {
+                if (bookDTOArrayList.get(i).getTitle().equals(title)) {
+                    serchNum = i;
+                    break;
+                } else if (i + 1 == bookDTOArrayList.size()) {
+                    System.out.println("잘못된 도서 제목을 입력하셨습니다.");
+                    break;
+                }
             }
+        } else if (bookDTOArrayList.isEmpty()) {
+            System.out.println("도서 목록이 비어 있습니다.");
+            System.out.println("우선 도서를 추가하시기 바랍니다.");
         }
         return serchNum;
     }
