@@ -27,6 +27,8 @@ public class BookManager {
 
             if (bookDTOArrayList.get(i).getbNo() == index) {
 
+                System.out.println(bookDTOArrayList.get(i) + " 도서를 삭제 했습니다.");
+                System.out.println("초기메뉴로 들어갑니다.");
                 bookDTOArrayList.remove(i);
                 return;
             } else if (i + 1 == bookDTOArrayList.size()) {
