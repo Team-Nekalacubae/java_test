@@ -92,4 +92,10 @@ public class BookManager {
         }
     }
 
+    /* ArrayList<BookDTO> 전달 */
+    public int initialBookDTO() {
+        int sizeNum = bookDTOArrayList.size();
+        return sizeNum;
+    }
+
 }

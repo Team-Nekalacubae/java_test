@@ -71,26 +71,44 @@ public class BookMenu {
     }
 
     public String inputBookTitle() {
-        System.out.print("검색할 도서 제목을 입력하세요 : ");
-        sc.nextLine();
-        String scTilte = sc.nextLine();
-        return scTilte;
+        String searchTilte = null;
+        if (bm.initialBookDTO() != 0) {
+            System.out.print("검색할 도서 제목을 입력하세요 : ");
+            sc.nextLine();
+            searchTilte = sc.nextLine();
+        } else {
+            System.out.println("도서 목록이 비어 있습니다.");
+            System.out.println("우선 도서를 추가하시기 바랍니다.");
+        }
+
+        return searchTilte;
     }
 
     public int inputBookNumber() {
-        System.out.print("삭제할 도서 번호를 입력하세요 : ");
-        int delBookNum = sc.nextInt();
+        int delBookNum = 0;
+        if (bm.initialBookDTO() != 0 ) {
+            System.out.print("삭제할 도서 번호를 입력하세요 : ");
+            delBookNum = sc.nextInt();
+        } else {
+            System.out.println("도서 목록이 비어 있습니다.");
+            System.out.println("우선 도서를 추가하시기 바랍니다.");
+        }
 
         return delBookNum;
     }
 
     public int printAll() {
-        System.out.println("===== 도서 목록 메뉴 ====");
-        System.out.println("1. 오름차순 ");
-        System.out.println("2. 내림차순 ");
-        System.out.print("원하는 정렬 방법의 번호를 입력하세요 : ");
-        int num = sc.nextInt();
-
+        int num = 0;
+        if (bm.initialBookDTO() != 0) {
+            System.out.println("===== 도서 목록 메뉴 ====");
+            System.out.println("1. 오름차순 ");
+            System.out.println("2. 내림차순 ");
+            System.out.print("원하는 정렬 방법의 번호를 입력하세요 : ");
+            num = sc.nextInt();
+        } else {
+            System.out.println("도서 목록이 비어 있습니다.");
+            System.out.println("우선 도서를 추가하시기 바랍니다.");
+        }
         return num;
     }
 }
