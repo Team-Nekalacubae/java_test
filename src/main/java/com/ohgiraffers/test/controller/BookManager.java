@@ -28,6 +28,7 @@ public class BookManager {
             if (bookDTOArrayList.get(i).getbNo() == index) {
 
                 bookDTOArrayList.remove(i);
+                return;
             } else if (i + 1 == bookDTOArrayList.size()) {
                 System.out.println("도서 목록에 없는 도서 번호 입니다.");
             }
@@ -41,6 +42,9 @@ public class BookManager {
             if (bookDTOArrayList.get(i).getTitle().equals(title)) {
 
                 serchNum = i;
+            } else {
+                System.out.println("도서 목록에 없는 도서 제목 입니다.");
+                break;
             }
         }
         return serchNum;
@@ -48,7 +52,11 @@ public class BookManager {
 
     /* 전달받은 인덱스에 있는 도서정보 출력*/
     public void printBook(int index) {
-        System.out.println(bookDTOArrayList.get(index));
+        for (int i = 0; i < bookDTOArrayList.size(); i++) {
+            if (bookDTOArrayList.get(i).getbNo() == index) {
+                System.out.println(bookDTOArrayList.get(index));
+            }
+        }
     }
 
     /* 도서목록 전체 출력 */

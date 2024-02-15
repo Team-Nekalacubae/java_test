@@ -56,7 +56,7 @@ public class BookDTO {
             case 4 : sCate = category + " (기타)"; break;
             default: sCate = category + " (미분류)"; break;
         }
-        return " [ 카테고리 : " + sCate + " / 도서번호 : " + bNo
-                + " / 도서제목 : " + title + " / 도서저자 : " + author + " ]";
+        // 출력문에 도서 번호 제거함
+        return " [ 카테고리 : " + sCate + " / 도서제목 : " + title + " / 도서저자 : " + author + " ]";
     }
 }

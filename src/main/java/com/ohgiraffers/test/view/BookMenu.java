@@ -37,7 +37,7 @@ public class BookMenu {
                     bm.displayAll();
                     break;
                 case 5 :
-                    bm.sortedBookList(printAll());
+                    bm.printBookList(bm.sortedBookList(printAll()));
                     break;
                 case 9 :
                     System.out.println("도서관리 프로그램을 종료합니다."); break;
@@ -78,10 +78,8 @@ public class BookMenu {
     }
 
     public int inputBookNumber() {
-        BookDTO bookDTO = new BookDTO();
         System.out.print("삭제할 도서 번호를 입력하세요 : ");
         int delBookNum = sc.nextInt();
-
 
         return delBookNum;
     }
