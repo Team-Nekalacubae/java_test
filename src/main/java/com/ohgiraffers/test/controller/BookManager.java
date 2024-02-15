@@ -68,9 +68,13 @@ public class BookManager {
     /* 도서목록 전체 출력 */
     public void displayAll() {
 //        printBookList(bookDTOArrayList);
-
-        for (BookDTO bookDTO : bookDTOArrayList) {
-            System.out.println(bookDTO);
+        if (!bookDTOArrayList.isEmpty()) {
+            for (BookDTO bookDTO : bookDTOArrayList) {
+                System.out.println(bookDTO);
+            }
+        } else {
+            System.out.println("도서 목록이 비어 있습니다.");
+            System.out.println("우선 도서를 추가하시기 바랍니다.");
         }
     }
 
