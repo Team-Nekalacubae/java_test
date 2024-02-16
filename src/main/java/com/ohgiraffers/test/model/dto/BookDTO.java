@@ -48,15 +48,15 @@ public class BookDTO {
 
     @Override
     public String toString() {
-        String sCate;
+        String stringCategory;
         switch (category) {
-            case 1 : sCate = category + " (인문)"; break;
-            case 2 : sCate = category + " (자연과학)"; break;
-            case 3 : sCate = category + " (의료)"; break;
-            case 4 : sCate = category + " (기타)"; break;
-            default: sCate = category + " (미분류)"; break;
+            case 1 : stringCategory = category + " (인문)"; break;
+            case 2 : stringCategory = category + " (자연과학)"; break;
+            case 3 : stringCategory = category + " (의료)"; break;
+            case 4 : stringCategory = category + " (기타)"; break;
+            default: stringCategory = category + " (미분류)"; break;
         }
         // 출력문에 도서 번호 제거함
-        return " [ 도서분류 : " + sCate + " / 도서제목 : " + title + " / 도서저자 : " + author + " ]";
+        return " [ 도서분류 : " + stringCategory + " / 도서제목 : " + title + " / 도서저자 : " + author + " ]";
     }
 }
